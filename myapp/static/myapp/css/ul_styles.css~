@@ -1,0 +1,118 @@
+#cssmenu ul li.active:after {
+    position: absolute;
+    right: -14px;
+    1width: 29.526912px;
+    1height: 29.526912px;
+    background: #15a794;
+    background: -moz-linear-gradient(-45deg, #128c7c, #18c2ac);
+    background: -webkit-linear-gradient(-45deg, #128c7c, #18c2ac);
+    background: -o-linear-gradient(-45deg, #128c7c, #18c2ac);
+    background: -ms-linear-gradient(-45deg, #128c7c, #18c2ac);
+    background: linear-gradient(-45deg, #128c7c, #18c2ac);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+}
+#cssmenu ul.sensors li.active:after {top:7px;}
+#cssmenu ul.previous li.active:after {top:48px}
+#cssmenu ul.testing li.active:after {top:88px;}
+
+#cssmenu ul li.active:before {
+    /* position: absolute; */
+    /* right: -12px; */
+    /* top: 9px; */
+    /* z-index: 10; */
+    /* width: 28.52691193px; */
+    /* height: 28.52691193px; */
+    /* border-right: 1px dashed #52e9d6; */
+    /* border-top: 1px dashed #52e9d6; */
+    /* -webkit-transform: rotate(45deg); */
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+}
+
+#cssmenu ul li.active a:after {
+    position: absolute;
+    bottom: -7px;
+    left: -11px;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid #0b5a50;
+    content: "";
+}
+
+#cssmenu ul li.active {
+    left: -8px;
+    padding: 2px;
+    background: #15a794;
+    background: -moz-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -webkit-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -o-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -ms-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: linear-gradient(to top, #128c7c, #18c2ac);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+#cssmenu ul {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background: #ffffff;
+    background: -moz-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -webkit-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -o-linear-gradient(bottom, #f0f0f0, #ffffff);
+    background: -ms-linear-gradient(bottom, #f0f0f0, #ffffff);
+    /* background: linear-gradient(to top, #f0f0f0, #ffffff); */
+}
+
+#cssmenu ul li{
+	position:inherit;
+}
+
+ #cssmenu  ul#side-menu li a:hover
+{
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	
+}
+
+#cssmenu  ul#side-menu li.active a:hover
+{
+    background: -moz-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -webkit-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -o-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: -ms-linear-gradient(bottom, #128c7c, #18c2ac);
+    background: linear-gradient(to top, #128c7c, #18c2ac);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+
+}
+
+.navbar-default{
+    1height: 100%;
+    margin-bottom: 0;
+    border-color: #242424;
+}
+
+.sidebar
+{
+	border: 1px solid gray;
+	height:93%;
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	
+}

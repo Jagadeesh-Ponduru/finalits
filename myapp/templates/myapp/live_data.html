@@ -1,0 +1,246 @@
+<html lang="en">
+
+<style>
+#.sidebar{
+
+background-color: #d2d2d2;
+border-color: #242424;
+
+}
+table {
+    border-collapse: collapse;
+    width: 40%;
+    margin-top:2cm;
+}
+
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #000000;
+    color: white;
+}
+
+</style>
+<head>
+    {%block content1%}
+    {%endblock%}
+
+    {% load staticfiles %}
+    <meta http-equiv="refresh" content="6">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/graph.js' %}"></script>
+
+
+
+   <!--  <title>Transbook</title> -->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'myapp/all/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{% static 'myapp/all/metisMenu/metisMenu.min.css'%}" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="{% static 'myapp/all/datatables-plugins/dataTables.bootstrap.css'%}" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="{% static 'myapp/all/datatables-responsive/dataTables.responsive.css'%}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'myapp/css/sb-admin-2.css'%}" rel="stylesheet">
+
+    <link href="{% static 'myapp/css/graph.css'%}" rel="stylesheet">
+    <link href="{% static 'myapp/css/ul_styles.css'%}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'myapp/all/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+
+{%block mapcontent%}
+
+{%endblock%}
+
+
+<div id="wrapper1">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;1position :fixed; width: 100%;background-color: #d2d2d2; border-color: #242424; ">
+	<center><div class="heading">Air Pollution Monitoring System</div></center>
+        <!-- /.navbar-header -->
+
+        <!-- /.navbar-static-side -->
+    </nav>
+<div class="navbar-default sidebar" role="navigation; background-color: #f0ad4e;">
+    <div   id="cssmenu" class="sidebar-nav navbar-collapse">
+                <ul class="nav testing" id="side-menu">
+
+                    <li><a href="/iot">Sensors</a></li>
+		    <li><a href="/previous"> Previous Data</a></li>
+
+                    <li ><a href="/analytics">Analytics</a></li>
+                    <li class="active"><a href="/live">Live Data</a></li>
+                </ul>
+ </div>
+            <!-- /.sidebar-collapse -->
+</div>
+
+
+
+  <div id="containerpie" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto;border: 5px solid #128c7c;"></div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+      <script src="{% static 'myapp/all/jquery/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'myapp/all/bootstrap/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{% static 'myapp/all/metisMenu/metisMenu.min.js'%}"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="{% static 'myapp/all/datatables/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{% static 'myapp/all/datatables-plugins/dataTables.bootstrap.min.js'%}"></script>
+    <script src="{% static 'myapp/all/datatables-responsive/dataTables.responsive.js'%}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'myapp/js/sb-admin-2.js'%}"></script>
+  <script>
+
+  $(document).ready(function () {
+      Highcharts.setOptions({
+          global: {
+              useUTC: false
+          }
+      });
+
+      Highcharts.chart('containerpie', {
+          chart: {
+              type: 'spline',
+              animation: Highcharts.svg, // don't animate in old IE
+              marginRight: 10,
+
+              events: {
+                    load: function requestData() {
+                        // set up the updating of the chart each second
+                      var series = this.series[0];
+                      setInterval(function () {
+                          var x = (new Date()).getTime(),
+                              // current time
+                              {%for Sensor in sensors %}
+                              y = {{Sensor.Sensor_value}};
+                              {%endfor%}
+                          series.addPoint([x, y], true, true);
+                          setTimeout(requestData,1);
+                      }, 1000);
+
+
+                  }
+              }
+          },
+          title: {
+              text: 'Live  data'
+          },
+          xAxis: {
+              type: 'datetime',
+              tickPixelInterval: 150
+          },
+          yAxis: {
+              title: {
+                  text: 'Value'
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          tooltip: {
+              formatter: function () {
+                  return '<b>' + this.series.name + '</b><br/>' +
+                      Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                      Highcharts.numberFormat(this.y, 2);
+              }
+          },
+          legend: {
+              enabled: false
+          },
+          exporting: {
+              enabled: false
+          },
+          series: [{
+              name: 'Live data',
+              data: (function () {
+                  // generate an array of random data
+                  var data = [],
+                      time = (new Date()).getTime(),
+                      i;
+
+                  for (i = -19; i <= 0; i += 1) {
+                      data.push({
+                          x: time + i * 1000,
+                          {%for Sensor in sensors %}
+                        	y: {{Sensor.Sensor_value}}
+                        	{%endfor%}
+                      });
+                  }
+                  return data;
+              }())
+          }]
+      });
+  });
+
+</script>
+
+{%block drivertable%}
+{%endblock%}
+</div>
+
+<center>
+<h3>last updated sensor readings</h3>
+<table align="center">
+  <tr>
+    <th>Time</th>
+    <th>Value</th>
+  </tr>
+  {%for Sen in sensors2 %}
+
+  <tr>
+    <td>{{Sen.Sensor_date}}</td>
+    <td>{{Sen.Sensor_value}}</td>
+  </tr>
+  {%endfor%}
+</table>
+
+</center>
+
+</body>
+</html>

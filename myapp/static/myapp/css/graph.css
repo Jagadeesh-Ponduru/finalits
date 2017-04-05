@@ -1,0 +1,57 @@
+.previousData-graphs .y-view{
+	1display:none;
+}
+.m6-view{
+	1display:none;
+}
+
+.m3-view{
+	1display:none;
+}
+
+.m1-view{
+	1display:none;
+}
+
+.previousData-view{
+	height: 400px;
+	padding-top:50px;
+	width:900px;
+	1overflow-x:scroll;
+
+}
+.previousData-graphs{
+	height:540px;
+	padding-top:10px;
+}
+.previousData-graphs div{
+
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+
+}
+
+div.graph_data:nth-child(1) {
+    border: 5px solid black;
+}
+div.graph_data:nth-child(2) {
+    border: 5px solid black;
+}
+div.graph_data:nth-child(3) {
+    border: 5px solid black;
+}
+
+form
+{
+padding-top:30px;
+}
+
+.highcharts-title tspan{
+
+	color: #128c7c;
+    font-size: 18px;
+    fill: #128c7c;
+}

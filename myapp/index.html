@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <base href="/"> -->
+  <title>Air and Water Monitoring System</title>
+
+  <!-- Dependencies CSS Files -->
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css" />
+
+  <!-- Custom CSS Files -->
+  <link rel="stylesheet" href="./src/header/header.css" />
+  <link rel="stylesheet" href="./src/admin/admin.css" />
+  <link rel="stylesheet" href="./src/pollution-board/pollution-board.css" />
+  <link rel="stylesheet" href="./src/home/home.css" />
+  <link rel="stylesheet" href="./src/dashboard/dashboard.css" />
+
+  <!-- Dependencies Javascript Files -->
+  <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="./node_modules/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.highcharts.com/stock/highstock.js"></script>
+  <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+  <!-- Custom Javascript Files -->
+  <script type="text/javascript" src="./src/app.js"></script>
+  <script type="text/javascript" src="./src/header/headerController.js"></script>
+  <script type="text/javascript" src="./src/admin/adminController.js"></script>
+  <script type="text/javascript" src="./src/dashboard/dashboardController.js"></script>
+ <!-- <script type="text/javascript" src="./src/devices/devicesController.js"></script>-->
+  <script type="text/javascript" src="./src/home/homeController.js"></script>
+  <script type="text/javascript" src="./src/pollution-board/pollutionController.js"></script>
+</head>
+<body  class="fluid-container">
+  <!-- Header -->
+  <div src="'./src/header/header.html'"></div>
+  <div ui-view></div>
+
+</body>
+</html>

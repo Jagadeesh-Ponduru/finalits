@@ -1,0 +1,113 @@
+
+{%load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="{% static 'myapp/css/map.css' %}" / >
+<script type="text/javascript" src="{% static 'myapp/js/jquery-1.7.1.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'myapp/js/map.js' %}"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeE9zkeT1v-qGN-aFNvZj5amyXN5G0svo&libraries=places&callback=initAutocomplete"
+         async defer></script>
+<script type="text/javascript" src="{% static 'myapp/js/graph.js' %}"></script>
+
+<script src="{% static 'myapp/all/jquery/jquery.min.js'%}"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{% static 'myapp/all/bootstrap/js/bootstrap.min.js'%}"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="{% static 'myapp/all/metisMenu/metisMenu.min.js'%}"></script>
+
+<!-- DataTables JavaScript -->
+<script src="{% static 'myapp/all/datatables/js/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'myapp/all/datatables-plugins/dataTables.bootstrap.min.js'%}"></script>
+<script src="{% static 'myapp/all/datatables-responsive/dataTables.responsive.js'%}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'myapp/js/sb-admin-2.js'%}"></script>
+<script type="text/javascript" src="{% static 'myapp/js/graph.js' %}"></script>
+
+
+
+
+
+<link href="{% static 'myapp/all/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+<!-- MetisMenu CSS -->
+<link href="{% static 'myapp/all/metisMenu/metisMenu.min.css'%}" rel="stylesheet">
+
+<!-- DataTables CSS -->
+<link href="{% static 'myapp/all/datatables-plugins/dataTables.bootstrap.css'%}" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="{% static 'myapp/all/datatables-responsive/dataTables.responsive.css'%}" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="{% static 'myapp/css/sb-admin-2.css'%}" rel="stylesheet">
+
+<link href="{% static 'myapp/css/ul_styles.css'%}" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="{% static 'myapp/all/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;1position :fixed; width: 100%;background-color: #d2d2d2; border-color: #242424; ">
+	<center><div class="heading">Air Pollution Monitoring System</div></center>
+        <!-- /.navbar-header -->
+
+        <!-- /.navbar-static-side -->
+    </nav>
+
+
+<div class="navbar-default sidebar" role="navigation; background-color: #f0ad4e;">
+            <div   id="cssmenu" class="sidebar-nav navbar-collapse">
+                <ul class="nav sensors" id="side-menu">
+
+                    <li class="active"><a href="/iot">Sensors</a></li>
+		    <li><a href="/previous"> Previous Data</a></li>
+
+                    <li><a href="/analytics">Analytics</a></li>
+                    <li><a href="/livemap">Live Data</a></li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+</div>
+
+
+
+
+    <div id="page-wrapper1" style="1min-height: 5000%; 1height: 5000%;">
+        <div class="row1">
+            <!-- <div class="col-lg-12"> -->
+            <!-- <div id="map"></div> -->
+            <div class="sensors-view row home-view" >
+
+
+              <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+                <div id="map" style="position:relative; overflow: hidden;"></div>
+
+            <!-- Replace the value of the key parameter with your own API key. -->
+            </div>
+
+
+
+
+
+            {%block mapid%}
+            {%endblock%}
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <!-- /.row -->
+
+        <!-- /.row -->
+    </div>
