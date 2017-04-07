@@ -45,8 +45,7 @@ def allsensors(request):
     sensors = Sensor.objects.all()
     count = Sensor.objects.count()
 
-    print sensors
-    print count
+
     context  = {
         "sensors":sensors,"count":range(count),
     }
@@ -55,8 +54,7 @@ def allsensors(request):
 def sensors(request):
     sensors = Sensor.objects.all()
     count = Sensor.objects.count()
-    print sensors
-    print count
+
     context  = {
         "sensors":sensors,"count":range(count),
     }
@@ -79,8 +77,7 @@ def previous(request):
 
     sensors = Sensor.objects.filter(Sensor_date__gte = '2017-03-27 11:58')
     count = Sensor.objects.filter(Sensor_date__gte = '2017-03-27 11:58').count()
-    print sensors
-    print count
+
     context  = {
         "sensors1":sensors,"count1":range(count1),"sensors2":sensors,"count2":range(count2),"sensors3":sensors,"count3":range(count3),"sensors4":sensors,"count4":range(count4),"sensors":sensors,"count":range(count),
     }
@@ -99,15 +96,15 @@ def multi(request):
 
 
     #sensors = Sensor.objects.all().filter(Sensor.Sensor_date > "March 27, 2017, 11:57 a.m.")
-    sensors1 = Sensor.objects.filter(Sensor_value__lte = low)
-    count1 = Sensor.objects.filter(Sensor_value__lte = low).count()
+    sensors1 = Sensor.objects.filter(Sensor_value__lt = low)
+    count1 = Sensor.objects.filter(Sensor_value__lt = low).count()
     sensors2 = Sensor.objects.filter(Sensor_value__gte = low,Sensor_value__lte = high)
     count2 = Sensor.objects.filter(Sensor_value__gte = low,Sensor_value__lte = high).count()
-    sensors3 = Sensor.objects.filter(Sensor_value__gte = high)
-    count3 = Sensor.objects.filter(Sensor_value__gte = high).count()
+    sensors3 = Sensor.objects.filter(Sensor_value__gt = high)
+    count3 = Sensor.objects.filter(Sensor_value__gt = high).count()
 
     context  = {
-        "sensors1":sensors1,"count1":range(count1),"sensors2":sensors2,"count2":range(count2),"sensors3":sensors3,"count3":range(count3),
+        "sensors1":sensors1,"count1":range(count1),"sensors2":sensors2,"count2":range(count2),"sensors3":sensors3,"count3":range(count3),'low':low,'high':high,
 
     }
     return render(request,"myapp/new_multi_data.html",context)
@@ -115,8 +112,7 @@ def multi(request):
 def  live(request):
         sensors1=Sensor.objects.all()
         count = Sensor.objects.all().count()
-        #print sensors
-        print count
+
         sensors=sensors1.reverse()[count-1:]
         sensors2=sensors1.reverse()[count-5:]
         context  = {
@@ -127,8 +123,7 @@ def  live(request):
 def  livemap(request):
         sensors1=Sensor.objects.all()
         count = Sensor.objects.all().count()
-        #print sensors
-        print count
+
         sensors=sensors1.reverse()[count-1:]
         sensors2=sensors1.reverse()[count-5:]
         context  = {
